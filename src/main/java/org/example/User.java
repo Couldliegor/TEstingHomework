@@ -5,25 +5,22 @@ import java.util.List;
 
 public class User {
     private String email;
-    private  String login;
-    private final List<User> userList = new ArrayList<>();
+    private String login;
 
     public User(String email, String login) {
         if (checkingUserParameters(email, login)) {
             this.email = email;
             this.login = login;
-            userList.add(this);
-        } else {
-            throw new RuntimeException("Данные введены неправильно");
         }
     }
 
     public User() {
-
+        this.email = null;
+        this.login = null;
     }
 
     public boolean checkingUserParameters(String email, String login) {
-        return email != login && email.contains("@") && email.contains(".");
+        return !email.equals(login) && email.contains("@") && email.contains(".");
     }
 
     public String getEmail() {
@@ -40,9 +37,5 @@ public class User {
 
     public void setLogin(String login) {
         this.login = login;
-    }
-
-    public List<User> getUserList() {
-        return userList;
     }
 }
