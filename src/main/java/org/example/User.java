@@ -11,6 +11,8 @@ public class User {
         if (checkingUserParameters(email, login)) {
             this.email = email;
             this.login = login;
+        } else {
+            throw new RuntimeException("Неправильный ввод данных");
         }
     }
 
